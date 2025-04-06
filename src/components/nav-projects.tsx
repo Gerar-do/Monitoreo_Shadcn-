@@ -1,6 +1,7 @@
 import {
   type LucideIcon,
 } from "lucide-react"
+import { Link } from "react-router-dom"
 
 import {
   SidebarGroup,
@@ -21,18 +22,15 @@ export function NavProjects({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-xs">Módulos</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild tooltip={item.name}>
-              <a href={item.url}>
-                {/* Aplicamos clase de color blanco al icono de Statistics */}
-                <item.icon className={`
-                  ${item.name === "Statistics" ? "text-white" : ""}
-                `} />
-                <span>{item.name}</span>
-              </a>
+            <SidebarMenuButton asChild tooltip={item.name} className="py-1.5">
+              <Link to={item.url} className="flex items-center gap-2 w-full">
+                <item.icon className="h-4 w-4 shrink-0 text-foreground" />
+                <span className="text-xs">{item.name}</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}

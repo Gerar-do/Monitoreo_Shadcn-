@@ -16,9 +16,9 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import Card from "@/components/ui/cards"
+import AnomaliesReport from "./AnomaliesReport"
 
-export default function Page() {
+export default function ReportPage() {
   const [apiStatus, setApiStatus] = useState<'connected' | 'disconnected'>('connected');
   const { theme, setTheme } = useTheme();
 
@@ -58,11 +58,11 @@ export default function Page() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                 
+                  
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Dashboard</BreadcrumbPage>
+                  <BreadcrumbPage>Reporte de Anomalías</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -79,9 +79,9 @@ export default function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <Card/>
+          <AnomaliesReport />
         </div>
       </SidebarInset>
     </SidebarProvider>
   )
-}
+} 
